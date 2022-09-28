@@ -6,4 +6,4 @@ layout: home
 
 ---
 
-# Martti, Hämäläinen
+This is my software developing project site where i publish tasks of my studies.
