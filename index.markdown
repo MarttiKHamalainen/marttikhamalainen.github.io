@@ -6,4 +6,5 @@ layout: home
 
 ---
 
-This is my software developing project site where i publish my study assignments.
+This is my software developing project site where i publish my study assignments. 
+
