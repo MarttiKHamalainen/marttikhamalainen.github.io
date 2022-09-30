@@ -6,5 +6,5 @@ layout: home
 
 ---
 
-This is my software developing project site where i publish my study assignments. 
-[My testpages](/web/index.html)
+JavaScript Gard Game (copied from Youtube). 
+[Start Game](/web/index.html)
