@@ -47,6 +47,13 @@ getHTML() {
     cardDiv.dataset.value = `${this.value} ${this.suit}`
     return cardDiv
 }
+
+getEmptyCardHTML() {
+    const cardDiv = document.createElement('div')
+    cardDiv.innerText = ""
+    cardDiv.classList.add("card", this.color)
+    return cardDiv
+}
 }
 
 
