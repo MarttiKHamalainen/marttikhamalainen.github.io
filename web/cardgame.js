@@ -595,18 +595,6 @@ function showComputerCard(card) {
     computerCardSlot.appendChild(card.getHTML())
     }
 
-// Check winner and show computer's score on desk. Computer wins game if player's score is 52
-function getComputerScoreHTML() {
-    const scoreDiv = document.createElement('div')
-    scoreDiv.innerText = ''
-        if(playerScore == 52){
-        scoreDiv.innerText = "win!!!"
-    } else {
-        scoreDiv.innerText = computerScore
-    }
-    
-    return scoreDiv
-}
 
 // Check winner and show player's score on desk. Player wins game if computer's score is 52
 function getPlayerScoreHTML() {
