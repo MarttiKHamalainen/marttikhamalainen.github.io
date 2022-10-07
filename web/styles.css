@@ -29,17 +29,40 @@ body {
 .computer-score {
     grid-column: span 6;
     display: flex;
-    justify-content: center;
+    justify-content: left;
     align-items: center;
     font-size: 2rem;
+    color: green;
 }
 
 .player-score {
     grid-column: span 6;
     display: flex;
-    justify-content: center;
+    justify-content: left;
     align-items: center;
     font-size: 2rem;
+}
+
+.empty {
+    height: 100%;
+    width: 100%;
+    border: 1px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3rem;
+    border-radius:  .5rem;
+    color: white;
+    user-select: none;
+    
+}
+
+.green {
+    background-color: green;
+}
+
+.blue {
+    background-color: blue;
 }
 
 .card {

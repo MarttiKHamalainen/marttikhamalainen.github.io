@@ -607,7 +607,7 @@ playerCardSlot13.addEventListener('click', () => {
 // Clean computer's card slot on desk and delete computer's card
 function deletePickupComputerCard() {
     computerCardSlot.innerHTML = ''
-    computerCardSlot.appendChild(pickupComputerCard.getEmptyCardHTML())
+    computerCardSlot.appendChild(pickupComputerCard.getEmptyComputerCardHTML())
     computerDeck.cards.splice(pickupComputerCardIndex, 1)
     }
 
@@ -646,7 +646,7 @@ function startGame() {
     playerDeck = new Deck(deck.cards.slice(0,13))
     computerDeck = new Deck(deck.cards.slice(13,26)) 
    
-    computerCardSlot.appendChild(computerDeck.cards[0].getEmptyCardHTML())
+    computerCardSlot.appendChild(computerDeck.cards[0].getEmptyComputerCardHTML())
     playerCardSlot1.appendChild(playerDeck.cards[0].getHTML())
     playerCardSlot2.appendChild(playerDeck.cards[1].getHTML())
     playerCardSlot3.appendChild(playerDeck.cards[2].getHTML())

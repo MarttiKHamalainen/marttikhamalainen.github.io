@@ -48,10 +48,17 @@ getHTML() {
     return cardDiv
 }
 
+
+getEmptyComputerCardHTML() {
+    const cardDiv = document.createElement('div')
+    cardDiv.innerText = ""
+    cardDiv.classList.add("empty", "green")
+    return cardDiv
+}
 getEmptyCardHTML() {
     const cardDiv = document.createElement('div')
     cardDiv.innerText = ""
-    cardDiv.classList.add("card", this.color)
+    cardDiv.classList.add("empty")
     return cardDiv
 }
 }
