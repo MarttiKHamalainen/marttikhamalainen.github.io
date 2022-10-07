@@ -61,11 +61,11 @@ let playerScore = 0
 playerCardSlot1.addEventListener('click', () => {
     
     if(cardOn1) {
-    // Pick up first card of equal suit from computer's hand
+    // Pick up first card of equal suit from computer's desk
     pickupComputerCard = computerDeck.cards.find(card => card.suit === playerDeck.cards[0].suit)
     pickupComputerCardIndex = computerDeck.cards.findIndex(card => card.suit === playerDeck.cards[0].suit)
   
-    // If computer's hand runs out the equal suit, computer's first card is picked up
+    // If computer's desk runs out the equal suit, computer's first card is picked up
     if(pickupComputerCard == undefined) {
     pickupComputerCard = computerDeck.cards[0]
     pickupComputerCardIndex = 0
@@ -103,11 +103,11 @@ playerCardSlot1.addEventListener('click', () => {
 playerCardSlot2.addEventListener('click', () => {
     
     if(cardOn2) {
-    // Pick up first card of equal suit from computers hand
+    // Pick up first card of equal suit from computers desk
     pickupComputerCard = computerDeck.cards.find(card => card.suit === playerDeck.cards[1].suit)
     pickupComputerCardIndex = computerDeck.cards.findIndex(card => card.suit === playerDeck.cards[1].suit)
   
-    // If computer's hand runs out the equal suit, computer's first card is picked up
+    // If computer's desk runs out the equal suit, computer's first card is picked up
     if(pickupComputerCard == undefined) {
     pickupComputerCard = computerDeck.cards[0]
     pickupComputerCardIndex = 0
@@ -145,11 +145,11 @@ playerCardSlot2.addEventListener('click', () => {
 playerCardSlot3.addEventListener('click', () => {
     
     if(cardOn3) {
-    // Pick up first card of equal suit from computer's hand
+    // Pick up first card of equal suit from computer's desk
     pickupComputerCard = computerDeck.cards.find(card => card.suit === playerDeck.cards[2].suit)
     pickupComputerCardIndex = computerDeck.cards.findIndex(card => card.suit === playerDeck.cards[2].suit)
   
-    // If computer's hand runs out the equal suit, computer's first card is picked up
+    // If computer's desk runs out the equal suit, computer's first card is picked up
     if(pickupComputerCard == undefined) {
     pickupComputerCard = computerDeck.cards[0]
     pickupComputerCardIndex = 0
@@ -187,11 +187,11 @@ playerCardSlot3.addEventListener('click', () => {
 playerCardSlot4.addEventListener('click', () => {
     
     if(cardOn4) {
-    // Pick up first card of equal suit from computer's hand
+    // Pick up first card of equal suit from computer's desk
     pickupComputerCard = computerDeck.cards.find(card => card.suit === playerDeck.cards[3].suit)
     pickupComputerCardIndex = computerDeck.cards.findIndex(card => card.suit === playerDeck.cards[3].suit)
   
-    // If computer's hand runs out the equal suit, computer's first card is picked up
+    // If computer's desk runs out the equal suit, computer's first card is picked up
     if(pickupComputerCard == undefined) {
     pickupComputerCard = computerDeck.cards[0]
     pickupComputerCardIndex = 0
@@ -228,11 +228,11 @@ playerCardSlot4.addEventListener('click', () => {
 playerCardSlot5.addEventListener('click', () => {
     
     if(cardOn5) {
-    // Pick up first card of equal suit from computer's hand
+    // Pick up first card of equal suit from computer's desk
     pickupComputerCard = computerDeck.cards.find(card => card.suit === playerDeck.cards[4].suit)
     pickupComputerCardIndex = computerDeck.cards.findIndex(card => card.suit === playerDeck.cards[4].suit)
   
-    // If computer's hand runs out the equal suit, computer's first card is picked up
+    // If computer's desk runs out the equal suit, computer's first card is picked up
     if(pickupComputerCard == undefined) {
     pickupComputerCard = computerDeck.cards[0]
     pickupComputerCardIndex = 0
@@ -269,11 +269,11 @@ playerCardSlot5.addEventListener('click', () => {
 playerCardSlot6.addEventListener('click', () => {
     
     if(cardOn6) {
-    // Pick up first card of equal suit from computers hand
+    // Pick up first card of equal suit from computers desk
     pickupComputerCard = computerDeck.cards.find(card => card.suit === playerDeck.cards[5].suit)
     pickupComputerCardIndex = computerDeck.cards.findIndex(card => card.suit === playerDeck.cards[5].suit)
   
-    // If computer's hand runs out the equal suit, computer's first card is picked up
+    // If computer's desk runs out the equal suit, computer's first card is picked up
     if(pickupComputerCard == undefined) {
     pickupComputerCard = computerDeck.cards[0]
     pickupComputerCardIndex = 0
@@ -310,11 +310,11 @@ playerCardSlot6.addEventListener('click', () => {
 playerCardSlot7.addEventListener('click', () => {
     
     if(cardOn7) {
-    // Pick up first card of equal suit from computers hand
+    // Pick up first card of equal suit from computers desk
     pickupComputerCard = computerDeck.cards.find(card => card.suit === playerDeck.cards[6].suit)
     pickupComputerCardIndex = computerDeck.cards.findIndex(card => card.suit === playerDeck.cards[6].suit)
   
-    // If computer's hand runs out the equal suit, computer's first card is picked up
+    // If computer's desk runs out the equal suit, computer's first card is picked up
     if(pickupComputerCard == undefined) {
     pickupComputerCard = computerDeck.cards[0]
     pickupComputerCardIndex = 0
@@ -351,11 +351,11 @@ playerCardSlot7.addEventListener('click', () => {
 playerCardSlot8.addEventListener('click', () => {
     
     if(cardOn8) {
-    // Pick up first card of equal suit from computer's hand
+    // Pick up first card of equal suit from computer's desk
     pickupComputerCard = computerDeck.cards.find(card => card.suit === playerDeck.cards[7].suit)
     pickupComputerCardIndex = computerDeck.cards.findIndex(card => card.suit === playerDeck.cards[7].suit)
   
-    // If computer's hand runs out the equal suit, computer's first card is picked up
+    // If computer's desk runs out the equal suit, computer's first card is picked up
     if(pickupComputerCard == undefined) {
     pickupComputerCard = computerDeck.cards[0]
     pickupComputerCardIndex = 0
@@ -392,11 +392,11 @@ playerCardSlot8.addEventListener('click', () => {
 playerCardSlot9.addEventListener('click', () => {
     
     if(cardOn9) {
-    // Pick up first card of equal suit from computer's hand
+    // Pick up first card of equal suit from computer's desk
     pickupComputerCard = computerDeck.cards.find(card => card.suit === playerDeck.cards[8].suit)
     pickupComputerCardIndex = computerDeck.cards.findIndex(card => card.suit === playerDeck.cards[8].suit)
   
-    // If computer's hand runs out the equal suit, computer's first card is picked up
+    // If computer's desk runs out the equal suit, computer's first card is picked up
     if(pickupComputerCard == undefined) {
     pickupComputerCard = computerDeck.cards[0]
     pickupComputerCardIndex = 0
@@ -433,11 +433,11 @@ playerCardSlot9.addEventListener('click', () => {
 playerCardSlot10.addEventListener('click', () => {
     
     if(cardOn10) {
-    // Pick up first card of equal suit from computer's hand
+    // Pick up first card of equal suit from computer's desk
     pickupComputerCard = computerDeck.cards.find(card => card.suit === playerDeck.cards[9].suit)
     pickupComputerCardIndex = computerDeck.cards.findIndex(card => card.suit === playerDeck.cards[9].suit)
   
-    // If computer's hand runs out the equal suit, computer's first card is picked up
+    // If computer's desk runs out the equal suit, computer's first card is picked up
     if(pickupComputerCard == undefined) {
     pickupComputerCard = computerDeck.cards[0]
     pickupComputerCardIndex = 0
@@ -474,11 +474,11 @@ playerCardSlot10.addEventListener('click', () => {
 playerCardSlot11.addEventListener('click', () => {
     
     if(cardOn11) {
-    // Pick up first card of equal suit from computer's hand
+    // Pick up first card of equal suit from computer's desk
     pickupComputerCard = computerDeck.cards.find(card => card.suit === playerDeck.cards[10].suit)
     pickupComputerCardIndex = computerDeck.cards.findIndex(card => card.suit === playerDeck.cards[10].suit)
   
-    // If computer's hand runs out the equal suit, computer's first card is picked up
+    // If computer's desk runs out the equal suit, computer's first card is picked up
     if(pickupComputerCard == undefined) {
     pickupComputerCard = computerDeck.cards[0]
     pickupComputerCardIndex = 0
@@ -515,11 +515,11 @@ playerCardSlot11.addEventListener('click', () => {
 playerCardSlot12.addEventListener('click', () => {
     
     if(cardOn12) {
-    // Pick up first card of equal suit from computer's hand
+    // Pick up first card of equal suit from computer's desk
     pickupComputerCard = computerDeck.cards.find(card => card.suit === playerDeck.cards[11].suit)
     pickupComputerCardIndex = computerDeck.cards.findIndex(card => card.suit === playerDeck.cards[11].suit)
   
-    // If computer's hand runs out the equal suit, computer's first card is picked up
+    // If computer's desk runs out the equal suit, computer's first card is picked up
     if(pickupComputerCard == undefined) {
     pickupComputerCard = computerDeck.cards[0]
     pickupComputerCardIndex = 0
@@ -557,11 +557,11 @@ playerCardSlot12.addEventListener('click', () => {
 playerCardSlot13.addEventListener('click', () => {
     
     if(cardOn13) {
-    // Pick up first card of equal suit from computers hand
+    // Pick up first card of equal suit from computers desk
     pickupComputerCard = computerDeck.cards.find(card => card.suit === playerDeck.cards[12].suit)
     pickupComputerCardIndex = computerDeck.cards.findIndex(card => card.suit === playerDeck.cards[12].suit)
   
-    // If computer's hand runs out the equal suit, computer's first card is picked up
+    // If computer's desk runs out the equal suit, computer's first card is picked up
     if(pickupComputerCard == undefined) {
     pickupComputerCard = computerDeck.cards[0]
     pickupComputerCardIndex = 0
