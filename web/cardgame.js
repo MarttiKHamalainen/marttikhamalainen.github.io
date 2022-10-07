@@ -34,6 +34,8 @@ const playerCardSlot11 = document.querySelector(".card-slot11")
 const playerCardSlot12 = document.querySelector(".card-slot12")
 const playerCardSlot13 = document.querySelector(".card-slot13")
 
+// cardOn variables are used to allow click card only one time. 
+// Only first click count scores, if player click cark many times the same card
 let cardOn1 = true
 let cardOn2 = true
 let cardOn3 = true
@@ -53,558 +55,73 @@ let playerDeck, computerDeck, pickupComputerCard, pickupComputerCardIndex
 let computerScore = 0
 let playerScore = 0
 
-// Add listener to the card 1
-// BAD SOLUTION!! I have copied this listener code 13 times
-// I try to make this code better
-// ------------------------------------------------- 
+// Add listeners to the cards
 
-playerCardSlot1.addEventListener('click', () => {
+playerCardSlot1.addEventListener('click', () => {cardOn1 = listenCard(cardOn1, playerDeck.cards[0], playerCardSlot1)})
+
+playerCardSlot2.addEventListener('click', () => {cardOn2 = listenCard(cardOn2, playerDeck.cards[1], playerCardSlot2)})
+
+playerCardSlot3.addEventListener('click', () => {cardOn3 = listenCard(cardOn3, playerDeck.cards[2], playerCardSlot3)})
+
+playerCardSlot4.addEventListener('click', () => {cardOn4 = listenCard(cardOn4, playerDeck.cards[3], playerCardSlot4)})
+
+playerCardSlot5.addEventListener('click', () => {cardOn5 = listenCard(cardOn5, playerDeck.cards[4], playerCardSlot5)})
+
+playerCardSlot6.addEventListener('click', () => {cardOn6 = listenCard(cardOn6, playerDeck.cards[5], playerCardSlot6)})
+
+playerCardSlot7.addEventListener('click', () => {cardOn7 = listenCard(cardOn7, playerDeck.cards[6], playerCardSlot7)})
+
+playerCardSlot8.addEventListener('click', () => {cardOn8 = listenCard(cardOn8, playerDeck.cards[7], playerCardSlot8)})
+
+playerCardSlot9.addEventListener('click', () => {cardOn9 = listenCard(cardOn9, playerDeck.cards[8], playerCardSlot9)})
+
+playerCardSlot10.addEventListener('click', () => {cardOn10 = listenCard(cardOn10, playerDeck.cards[9], playerCardSlot10)})
+
+playerCardSlot11.addEventListener('click', () => {cardOn11 = listenCard(cardOn11, playerDeck.cards[10], playerCardSlot11)})
+
+playerCardSlot12.addEventListener('click', () => {cardOn12 = listenCard(cardOn12, playerDeck.cards[11], playerCardSlot12)})
+
+playerCardSlot13.addEventListener('click', () => {cardOn13 = listenCard(cardOn13, playerDeck.cards[12], playerCardSlot13)})
+
+
+// This function is executed, when the player clicks on the card
+function listenCard(cardOn, playerCards, playerCardSlot) {
+    if(cardOn) {
+        // Pick up first card of equal suit from computers desk
+        pickupComputerCard = computerDeck.cards.find(card => card.suit === playerCards.suit)
+        pickupComputerCardIndex = computerDeck.cards.findIndex(card => card.suit === playerCards.suit)
+      
+        // If computer's desk runs out the equal suit, computer's first card is picked up
+        if(pickupComputerCard == undefined) {
+        pickupComputerCard = computerDeck.cards[0]
+        pickupComputerCardIndex = 0
+       }
     
-    if(cardOn1) {
-    // Pick up first card of equal suit from computer's desk
-    pickupComputerCard = computerDeck.cards.find(card => card.suit === playerDeck.cards[0].suit)
-    pickupComputerCardIndex = computerDeck.cards.findIndex(card => card.suit === playerDeck.cards[0].suit)
-  
-    // If computer's desk runs out the equal suit, computer's first card is picked up
-    if(pickupComputerCard == undefined) {
-    pickupComputerCard = computerDeck.cards[0]
-    pickupComputerCardIndex = 0
-   }
-
-   // Check the winner card and count score
-    if (isRoundWinner(playerDeck.cards[0], pickupComputerCard)){
-        playerScore++       
-    } else {
-        computerScore++
-    }
-
-    // Update score slots 
-    computerCountSlot.innerText = `Computer ${computerScore}`
-    playerCountSlot.innerText = `Player ${playerScore}`
-
-    //Show computer's card
-    showComputerCard(pickupComputerCard)      
-
-    // After 2 seconds turn off player's and computer's card on desk
-    setTimeout(() => {
-    deletePickupComputerCard()
-    cleanPlayerCardSlot(playerDeck.cards[0],playerCardSlot1)
-    console.log(computerDeck.cards)
-    }, cardVisibly)
-
-    cardOn1 = false
-    }
-})
-
-// Add listener to the card 2
-// BAD SOLUTION!! I have copied this listener code 13 times
-// I try to make this code better
-// ------------------------------------------------- 
-
-playerCardSlot2.addEventListener('click', () => {
+       // Check the winner card and count score
+        if (isRoundWinner(playerCards, pickupComputerCard)){
+            playerScore++       
+        } else {
+            computerScore++
+        }
     
-    if(cardOn2) {
-    // Pick up first card of equal suit from computers desk
-    pickupComputerCard = computerDeck.cards.find(card => card.suit === playerDeck.cards[1].suit)
-    pickupComputerCardIndex = computerDeck.cards.findIndex(card => card.suit === playerDeck.cards[1].suit)
-  
-    // If computer's desk runs out the equal suit, computer's first card is picked up
-    if(pickupComputerCard == undefined) {
-    pickupComputerCard = computerDeck.cards[0]
-    pickupComputerCardIndex = 0
-   }
-
-   // Check the winner card and count score
-    if (isRoundWinner(playerDeck.cards[1], pickupComputerCard)){
-        playerScore++       
-    } else {
-        computerScore++
-    }
-
-    // Update score slots 
-    computerCountSlot.innerText = `Computer ${computerScore}`
-    playerCountSlot.innerText = `Player ${playerScore}`
-
-    //Show computer's card
-    showComputerCard(pickupComputerCard)      
-
-    // After 2 seconds turn off player's and computer's card on desk
-    setTimeout(() => {
-    deletePickupComputerCard()
-    cleanPlayerCardSlot(playerDeck.cards[1],playerCardSlot2)
-    console.log(computerDeck.cards)
-    }, cardVisibly)
-
-    cardOn2 = false
-    }
-})
-
-// Add listener to the card 3
-// BAD SOLUTION!! I have copied this listener code 13 times
-// I try to make this code better
-// ------------------------------------------------- 
-
-playerCardSlot3.addEventListener('click', () => {
+        // Update score slots 
+        computerCountSlot.innerText = `Computer ${computerScore}`
+        playerCountSlot.innerText = `Player ${playerScore}`
     
-    if(cardOn3) {
-    // Pick up first card of equal suit from computer's desk
-    pickupComputerCard = computerDeck.cards.find(card => card.suit === playerDeck.cards[2].suit)
-    pickupComputerCardIndex = computerDeck.cards.findIndex(card => card.suit === playerDeck.cards[2].suit)
-  
-    // If computer's desk runs out the equal suit, computer's first card is picked up
-    if(pickupComputerCard == undefined) {
-    pickupComputerCard = computerDeck.cards[0]
-    pickupComputerCardIndex = 0
-   }
-
-   // Check the winner card and count score
-    if (isRoundWinner(playerDeck.cards[2], pickupComputerCard)){
-        playerScore++       
-    } else {
-        computerScore++
-    }
-
-    // Update score slots 
-    computerCountSlot.innerText = `Computer ${computerScore}`
-    playerCountSlot.innerText = `Player ${playerScore}`
-
-    //Show computer's card
-    showComputerCard(pickupComputerCard)      
-
-    // After 2 seconds turn off player's and computer's card on desk
-    setTimeout(() => {
-    deletePickupComputerCard()
-    cleanPlayerCardSlot(playerDeck.cards[2],playerCardSlot3)
-    console.log(computerDeck.cards)
-    }, cardVisibly)  
-
-    cardOn3 = false
-    }
-})
-
-// Add listener to the card 4
-// BAD SOLUTION!! I have copied this listener code 13 times
-// I try to make this code better
-// ------------------------------------------------- 
-
-playerCardSlot4.addEventListener('click', () => {
+        //Show computer's card
+        showComputerCard(pickupComputerCard)      
     
-    if(cardOn4) {
-    // Pick up first card of equal suit from computer's desk
-    pickupComputerCard = computerDeck.cards.find(card => card.suit === playerDeck.cards[3].suit)
-    pickupComputerCardIndex = computerDeck.cards.findIndex(card => card.suit === playerDeck.cards[3].suit)
-  
-    // If computer's desk runs out the equal suit, computer's first card is picked up
-    if(pickupComputerCard == undefined) {
-    pickupComputerCard = computerDeck.cards[0]
-    pickupComputerCardIndex = 0
-   }
-
-   // Check the winner card and count score
-    if (isRoundWinner(playerDeck.cards[2], pickupComputerCard)){
-        playerScore++       
-    } else {
-        computerScore++
-    }
-
-    // Update score slots 
-    computerCountSlot.innerText = `Computer ${computerScore}`
-    playerCountSlot.innerText = `Player ${playerScore}`
-
-    //Show computer's card
-    showComputerCard(pickupComputerCard)      
-
-    // After 2 seconds turn off player's and computer's card on desk
-    setTimeout(() => {
-    deletePickupComputerCard()
-    cleanPlayerCardSlot(playerDeck.cards[3],playerCardSlot4)
-    }, cardVisibly) 
-    
-    cardOn4 = false
-    }
-})
-
-// Add listener to the card 5
-// BAD SOLUTION!! I have copied this listener code 13 times
-// I try to make this code better
-// ------------------------------------------------- 
-
-playerCardSlot5.addEventListener('click', () => {
-    
-    if(cardOn5) {
-    // Pick up first card of equal suit from computer's desk
-    pickupComputerCard = computerDeck.cards.find(card => card.suit === playerDeck.cards[4].suit)
-    pickupComputerCardIndex = computerDeck.cards.findIndex(card => card.suit === playerDeck.cards[4].suit)
-  
-    // If computer's desk runs out the equal suit, computer's first card is picked up
-    if(pickupComputerCard == undefined) {
-    pickupComputerCard = computerDeck.cards[0]
-    pickupComputerCardIndex = 0
-   }
-
-   // Check the winner card and count score
-    if (isRoundWinner(playerDeck.cards[4], pickupComputerCard)){
-        playerScore++       
-    } else {
-        computerScore++
-    }
-
-    // Update score slots 
-    computerCountSlot.innerText = `Computer ${computerScore}`
-    playerCountSlot.innerText = `Player ${playerScore}`
-
-    //Show computer's card
-    showComputerCard(pickupComputerCard)      
-
-    // After 2 seconds turn off player's and computer's card on desk
-    setTimeout(() => {
-    deletePickupComputerCard()
-    cleanPlayerCardSlot(playerDeck.cards[4],playerCardSlot5)
-    }, cardVisibly) 
-    
-    cardOn5 = false
-    }
-})
-
-// Add listener to the card 6
-// BAD SOLUTION!! I have copied this listener code 13 times
-// I try to make this code better
-// ------------------------------------------------- 
-
-playerCardSlot6.addEventListener('click', () => {
-    
-    if(cardOn6) {
-    // Pick up first card of equal suit from computers desk
-    pickupComputerCard = computerDeck.cards.find(card => card.suit === playerDeck.cards[5].suit)
-    pickupComputerCardIndex = computerDeck.cards.findIndex(card => card.suit === playerDeck.cards[5].suit)
-  
-    // If computer's desk runs out the equal suit, computer's first card is picked up
-    if(pickupComputerCard == undefined) {
-    pickupComputerCard = computerDeck.cards[0]
-    pickupComputerCardIndex = 0
-   }
-
-   // Check the winner card and count score
-    if (isRoundWinner(playerDeck.cards[5], pickupComputerCard)){
-        playerScore++       
-    } else {
-        computerScore++
-    }
-
-    // Update score slots 
-    computerCountSlot.innerText = `Computer ${computerScore}`
-    playerCountSlot.innerText = `Player ${playerScore}`
-
-    //Show computer's card
-    showComputerCard(pickupComputerCard)      
-
-    // After 2 seconds turn off player's and computer's card on desk
-    setTimeout(() => {
-    deletePickupComputerCard()
-    cleanPlayerCardSlot(playerDeck.cards[5],playerCardSlot6)
-    }, cardVisibly)  
-
-    cardOn6 = false
-    }
-})
-
-// Add listener to the card 7
-// BAD SOLUTION!! I have copied this listener code 13 times
-// I try to make this code better
-// ------------------------------------------------- 
-
-playerCardSlot7.addEventListener('click', () => {
-    
-    if(cardOn7) {
-    // Pick up first card of equal suit from computers desk
-    pickupComputerCard = computerDeck.cards.find(card => card.suit === playerDeck.cards[6].suit)
-    pickupComputerCardIndex = computerDeck.cards.findIndex(card => card.suit === playerDeck.cards[6].suit)
-  
-    // If computer's desk runs out the equal suit, computer's first card is picked up
-    if(pickupComputerCard == undefined) {
-    pickupComputerCard = computerDeck.cards[0]
-    pickupComputerCardIndex = 0
-   }
-
-   // Check the winner card and count score
-    if (isRoundWinner(playerDeck.cards[6], pickupComputerCard)){
-        playerScore++       
-    } else {
-        computerScore++
-    }
-
-    // Update score slots 
-    computerCountSlot.innerText = `Computer ${computerScore}`
-    playerCountSlot.innerText = `Player ${playerScore}`
-
-    //Show computer's card
-    showComputerCard(pickupComputerCard)      
-
-    // After 2 seconds turn off player's and computer's card on desk
-    setTimeout(() => {
-    deletePickupComputerCard()
-    cleanPlayerCardSlot(playerDeck.cards[6],playerCardSlot7)
-    }, cardVisibly) 
-    
-    cardOn7 = false
-    }
-})
-
-// Add listener to the card 8
-// BAD SOLUTION!! I have copied this listener code 13 times
-// I try to make this code better
-// ------------------------------------------------- 
-
-playerCardSlot8.addEventListener('click', () => {
-    
-    if(cardOn8) {
-    // Pick up first card of equal suit from computer's desk
-    pickupComputerCard = computerDeck.cards.find(card => card.suit === playerDeck.cards[7].suit)
-    pickupComputerCardIndex = computerDeck.cards.findIndex(card => card.suit === playerDeck.cards[7].suit)
-  
-    // If computer's desk runs out the equal suit, computer's first card is picked up
-    if(pickupComputerCard == undefined) {
-    pickupComputerCard = computerDeck.cards[0]
-    pickupComputerCardIndex = 0
-   }
-
-   // Check the winner card and count score
-    if (isRoundWinner(playerDeck.cards[7], pickupComputerCard)){
-        playerScore++       
-    } else {
-        computerScore++
-    }
-
-    // Update score slots 
-    computerCountSlot.innerText = `Computer ${computerScore}`
-    playerCountSlot.innerText = `Player ${playerScore}`
-
-    //Show computer's card
-    showComputerCard(pickupComputerCard)      
-
-    // After 2 seconds turn off player's and computer's card on desk
-    setTimeout(() => {
-    deletePickupComputerCard()
-    cleanPlayerCardSlot(playerDeck.cards[7],playerCardSlot8)
-    }, cardVisibly) 
-    
-    cardOn8 = false
-    }
-})
-
-// Add listener to the card 9
-// BAD SOLUTION!! I have copied this listener code 13 times
-// I try to make this code better
-// ------------------------------------------------- 
-
-playerCardSlot9.addEventListener('click', () => {
-    
-    if(cardOn9) {
-    // Pick up first card of equal suit from computer's desk
-    pickupComputerCard = computerDeck.cards.find(card => card.suit === playerDeck.cards[8].suit)
-    pickupComputerCardIndex = computerDeck.cards.findIndex(card => card.suit === playerDeck.cards[8].suit)
-  
-    // If computer's desk runs out the equal suit, computer's first card is picked up
-    if(pickupComputerCard == undefined) {
-    pickupComputerCard = computerDeck.cards[0]
-    pickupComputerCardIndex = 0
-   }
-
-   // Check the winner card and count score
-    if (isRoundWinner(playerDeck.cards[8], pickupComputerCard)){
-        playerScore++       
-    } else {
-        computerScore++
-    }
-
-    // Update score slots 
-    computerCountSlot.innerText = `Computer ${computerScore}`
-    playerCountSlot.innerText = `Player ${playerScore}`
-
-    //Show computer's card
-    showComputerCard(pickupComputerCard)      
-
-    // After 2 seconds turn off player's and computer's card on desk
-    setTimeout(() => {
-    deletePickupComputerCard()
-    cleanPlayerCardSlot(playerDeck.cards[8],playerCardSlot9)
-    }, cardVisibly)  
-
-    cardOn9 = false
-    }
-})
-
-// Add listener to the card 10
-// BAD SOLUTION!! I have copied this listener code 13 times
-// I try to make this code better
-// ------------------------------------------------- 
-
-playerCardSlot10.addEventListener('click', () => {
-    
-    if(cardOn10) {
-    // Pick up first card of equal suit from computer's desk
-    pickupComputerCard = computerDeck.cards.find(card => card.suit === playerDeck.cards[9].suit)
-    pickupComputerCardIndex = computerDeck.cards.findIndex(card => card.suit === playerDeck.cards[9].suit)
-  
-    // If computer's desk runs out the equal suit, computer's first card is picked up
-    if(pickupComputerCard == undefined) {
-    pickupComputerCard = computerDeck.cards[0]
-    pickupComputerCardIndex = 0
-   }
-
-   // Check the winner card and count score
-    if (isRoundWinner(playerDeck.cards[9], pickupComputerCard)){
-        playerScore++       
-    } else {
-        computerScore++
-    }
-
-    // Update score slots 
-    computerCountSlot.innerText = `Computer ${computerScore}`
-    playerCountSlot.innerText = `Player ${playerScore}`
-
-    //Show computer's card
-    showComputerCard(pickupComputerCard)      
-
-    // After 2 seconds turn off player's and computer's card on desk
-    setTimeout(() => {
-    deletePickupComputerCard()
-    cleanPlayerCardSlot(playerDeck.cards[9],playerCardSlot10)
-    }, cardVisibly)  
-
-    cardOn10 = false
-    }
-})
-
-// Add listener to the card 11
-// BAD SOLUTION!! I have copied this listener code 13 times
-// I try to make this code better
-// ------------------------------------------------- 
-
-playerCardSlot11.addEventListener('click', () => {
-    
-    if(cardOn11) {
-    // Pick up first card of equal suit from computer's desk
-    pickupComputerCard = computerDeck.cards.find(card => card.suit === playerDeck.cards[10].suit)
-    pickupComputerCardIndex = computerDeck.cards.findIndex(card => card.suit === playerDeck.cards[10].suit)
-  
-    // If computer's desk runs out the equal suit, computer's first card is picked up
-    if(pickupComputerCard == undefined) {
-    pickupComputerCard = computerDeck.cards[0]
-    pickupComputerCardIndex = 0
-   }
-
-   // Check the winner card and count score
-    if (isRoundWinner(playerDeck.cards[10], pickupComputerCard)){
-        playerScore++       
-    } else {
-        computerScore++
-    }
-
-    // Update score slots 
-    computerCountSlot.innerText = `Computer ${computerScore}`
-    playerCountSlot.innerText = `Player ${playerScore}`
-
-    //Show computer's card
-    showComputerCard(pickupComputerCard)      
-
-    // After 2 seconds turn off player's and computer's card on desk
-    setTimeout(() => {
-    deletePickupComputerCard()
-    cleanPlayerCardSlot(playerDeck.cards[10],playerCardSlot11)
-    }, cardVisibly)  
-
-    cardOn11 = false
-    }
-})
-
-// Add listener to the card 12
-// BAD SOLUTION!! I have copied this listener code 13 times
-// I try to make this code better
-// ------------------------------------------------- 
-
-playerCardSlot12.addEventListener('click', () => {
-    
-    if(cardOn12) {
-    // Pick up first card of equal suit from computer's desk
-    pickupComputerCard = computerDeck.cards.find(card => card.suit === playerDeck.cards[11].suit)
-    pickupComputerCardIndex = computerDeck.cards.findIndex(card => card.suit === playerDeck.cards[11].suit)
-  
-    // If computer's desk runs out the equal suit, computer's first card is picked up
-    if(pickupComputerCard == undefined) {
-    pickupComputerCard = computerDeck.cards[0]
-    pickupComputerCardIndex = 0
-   }
-
-   // Check the winner card and count score
-    if (isRoundWinner(playerDeck.cards[11], pickupComputerCard)){
-        playerScore++       
-    } else {
-        computerScore++
-    }
-
-    // Update score slots 
-    computerCountSlot.innerText = `Computer ${computerScore}`
-    playerCountSlot.innerText = `Player ${playerScore}`
-
-    //Show computer's card
-    showComputerCard(pickupComputerCard)      
-
-    // After 2 seconds turn off player's and computer's card on desk
-    setTimeout(() => {
-    deletePickupComputerCard()
-    cleanPlayerCardSlot(playerDeck.cards[11],playerCardSlot12)
-    }, cardVisibly) 
-    
-    cardOn12 = false
-    }
-})
-
-
-// Add listener to the card 13
-// BAD SOLUTION!! I have copied this listener code 13 times
-// I try to make this code better
-// ------------------------------------------------- 
-
-playerCardSlot13.addEventListener('click', () => {
-    
-    if(cardOn13) {
-    // Pick up first card of equal suit from computers desk
-    pickupComputerCard = computerDeck.cards.find(card => card.suit === playerDeck.cards[12].suit)
-    pickupComputerCardIndex = computerDeck.cards.findIndex(card => card.suit === playerDeck.cards[12].suit)
-  
-    // If computer's desk runs out the equal suit, computer's first card is picked up
-    if(pickupComputerCard == undefined) {
-    pickupComputerCard = computerDeck.cards[0]
-    pickupComputerCardIndex = 0
-   }
-
-   // Check the winner card and count score
-    if (isRoundWinner(playerDeck.cards[12], pickupComputerCard)){
-        playerScore++       
-    } else {
-        computerScore++
-    }
-
-    // Update score slots 
-    computerCountSlot.innerText = `Computer ${computerScore}`
-    playerCountSlot.innerText = `Player ${playerScore}`
-
-    //Show computer's card
-    showComputerCard(pickupComputerCard)      
-
-    // After 2 seconds turn off player's and computers card on desk
-    setTimeout(() => {
-    deletePickupComputerCard()
-    cleanPlayerCardSlot(playerDeck.cards[12],playerCardSlot13)
-    }, cardVisibly)  
-
-    cardOn13 = false
-    }
-})
-
-
-// Clean computer's card slot on desk and delete computer's card
+        // After 2 seconds turn off player's and computer's card on desk
+        setTimeout(() => {
+        deletePickupComputerCard()
+        cleanPlayerCardSlot(playerCards,playerCardSlot)
+        console.log(computerDeck.cards)
+        }, cardVisibly)
+        }
+        return false
+}
+
+// Clean computer's card slot on desk and delete computer's card 
 function deletePickupComputerCard() {
     computerCardSlot.innerHTML = ''
     computerCardSlot.appendChild(pickupComputerCard.getEmptyComputerCardHTML())
