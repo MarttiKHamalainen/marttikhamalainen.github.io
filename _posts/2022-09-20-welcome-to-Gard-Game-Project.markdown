@@ -6,5 +6,5 @@ categories: jekyll update
 ---
 
 This card game is my study assigment in software design course (FastTrack, Coreseer Company).
-[Start Game](../web/index.html)
+[Start Game](~/web/index.html)
 
