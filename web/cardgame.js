@@ -61,13 +61,14 @@ let playerScore = 0
 playerCardSlot1.addEventListener('click', () => {
     
     if(cardOn1) {
-    // Pick up first card of equal suit from computers hand
+    // Pick up first card of equal suit from computer's hand
     pickupComputerCard = computerDeck.cards.find(card => card.suit === playerDeck.cards[0].suit)
     pickupComputerCardIndex = computerDeck.cards.findIndex(card => card.suit === playerDeck.cards[0].suit)
   
     // If computer's hand runs out the equal suit, computer's first card is picked up
     if(pickupComputerCard == undefined) {
     pickupComputerCard = computerDeck.cards[0]
+    pickupComputerCardIndex = 0
    }
 
    // Check the winner card and count score
@@ -84,11 +85,12 @@ playerCardSlot1.addEventListener('click', () => {
     //Show computer's card
     showComputerCard(pickupComputerCard)      
 
-    // After 2 seconds turn off player's and computers card on desk
+    // After 2 seconds turn off player's and computer's card on desk
     setTimeout(() => {
     deletePickupComputerCard()
     cleanPlayerCardSlot(playerDeck.cards[0],playerCardSlot1)
     cardOn1 = false
+    console.log(computerDeck.cards)
     }, cardVisibly)  
     }
 })
@@ -108,6 +110,7 @@ playerCardSlot2.addEventListener('click', () => {
     // If computer's hand runs out the equal suit, computer's first card is picked up
     if(pickupComputerCard == undefined) {
     pickupComputerCard = computerDeck.cards[0]
+    pickupComputerCardIndex = 0
    }
 
    // Check the winner card and count score
@@ -124,11 +127,12 @@ playerCardSlot2.addEventListener('click', () => {
     //Show computer's card
     showComputerCard(pickupComputerCard)      
 
-    // After 2 seconds turn off player's and computers card on desk
+    // After 2 seconds turn off player's and computer's card on desk
     setTimeout(() => {
     deletePickupComputerCard()
     cleanPlayerCardSlot(playerDeck.cards[1],playerCardSlot2)
     cardOn2 = false
+    console.log(computerDeck.cards)
     }, cardVisibly)  
     }
 })
@@ -141,13 +145,14 @@ playerCardSlot2.addEventListener('click', () => {
 playerCardSlot3.addEventListener('click', () => {
     
     if(cardOn3) {
-    // Pick up first card of equal suit from computers hand
+    // Pick up first card of equal suit from computer's hand
     pickupComputerCard = computerDeck.cards.find(card => card.suit === playerDeck.cards[2].suit)
     pickupComputerCardIndex = computerDeck.cards.findIndex(card => card.suit === playerDeck.cards[2].suit)
   
     // If computer's hand runs out the equal suit, computer's first card is picked up
     if(pickupComputerCard == undefined) {
     pickupComputerCard = computerDeck.cards[0]
+    pickupComputerCardIndex = 0
    }
 
    // Check the winner card and count score
@@ -164,11 +169,12 @@ playerCardSlot3.addEventListener('click', () => {
     //Show computer's card
     showComputerCard(pickupComputerCard)      
 
-    // After 2 seconds turn off player's and computers card on desk
+    // After 2 seconds turn off player's and computer's card on desk
     setTimeout(() => {
     deletePickupComputerCard()
     cleanPlayerCardSlot(playerDeck.cards[2],playerCardSlot3)
     cardOn3 = false
+    console.log(computerDeck.cards)
     }, cardVisibly)  
     }
 })
@@ -181,13 +187,14 @@ playerCardSlot3.addEventListener('click', () => {
 playerCardSlot4.addEventListener('click', () => {
     
     if(cardOn4) {
-    // Pick up first card of equal suit from computers hand
+    // Pick up first card of equal suit from computer's hand
     pickupComputerCard = computerDeck.cards.find(card => card.suit === playerDeck.cards[3].suit)
     pickupComputerCardIndex = computerDeck.cards.findIndex(card => card.suit === playerDeck.cards[3].suit)
   
     // If computer's hand runs out the equal suit, computer's first card is picked up
     if(pickupComputerCard == undefined) {
     pickupComputerCard = computerDeck.cards[0]
+    pickupComputerCardIndex = 0
    }
 
    // Check the winner card and count score
@@ -204,7 +211,7 @@ playerCardSlot4.addEventListener('click', () => {
     //Show computer's card
     showComputerCard(pickupComputerCard)      
 
-    // After 2 seconds turn off player's and computers card on desk
+    // After 2 seconds turn off player's and computer's card on desk
     setTimeout(() => {
     deletePickupComputerCard()
     cleanPlayerCardSlot(playerDeck.cards[3],playerCardSlot4)
@@ -221,13 +228,14 @@ playerCardSlot4.addEventListener('click', () => {
 playerCardSlot5.addEventListener('click', () => {
     
     if(cardOn5) {
-    // Pick up first card of equal suit from computers hand
+    // Pick up first card of equal suit from computer's hand
     pickupComputerCard = computerDeck.cards.find(card => card.suit === playerDeck.cards[4].suit)
     pickupComputerCardIndex = computerDeck.cards.findIndex(card => card.suit === playerDeck.cards[4].suit)
   
     // If computer's hand runs out the equal suit, computer's first card is picked up
     if(pickupComputerCard == undefined) {
     pickupComputerCard = computerDeck.cards[0]
+    pickupComputerCardIndex = 0
    }
 
    // Check the winner card and count score
@@ -244,7 +252,7 @@ playerCardSlot5.addEventListener('click', () => {
     //Show computer's card
     showComputerCard(pickupComputerCard)      
 
-    // After 2 seconds turn off player's and computers card on desk
+    // After 2 seconds turn off player's and computer's card on desk
     setTimeout(() => {
     deletePickupComputerCard()
     cleanPlayerCardSlot(playerDeck.cards[4],playerCardSlot5)
@@ -268,6 +276,7 @@ playerCardSlot6.addEventListener('click', () => {
     // If computer's hand runs out the equal suit, computer's first card is picked up
     if(pickupComputerCard == undefined) {
     pickupComputerCard = computerDeck.cards[0]
+    pickupComputerCardIndex = 0
    }
 
    // Check the winner card and count score
@@ -284,7 +293,7 @@ playerCardSlot6.addEventListener('click', () => {
     //Show computer's card
     showComputerCard(pickupComputerCard)      
 
-    // After 2 seconds turn off player's and computers card on desk
+    // After 2 seconds turn off player's and computer's card on desk
     setTimeout(() => {
     deletePickupComputerCard()
     cleanPlayerCardSlot(playerDeck.cards[5],playerCardSlot6)
@@ -308,6 +317,7 @@ playerCardSlot7.addEventListener('click', () => {
     // If computer's hand runs out the equal suit, computer's first card is picked up
     if(pickupComputerCard == undefined) {
     pickupComputerCard = computerDeck.cards[0]
+    pickupComputerCardIndex = 0
    }
 
    // Check the winner card and count score
@@ -324,7 +334,7 @@ playerCardSlot7.addEventListener('click', () => {
     //Show computer's card
     showComputerCard(pickupComputerCard)      
 
-    // After 2 seconds turn off player's and computers card on desk
+    // After 2 seconds turn off player's and computer's card on desk
     setTimeout(() => {
     deletePickupComputerCard()
     cleanPlayerCardSlot(playerDeck.cards[6],playerCardSlot7)
@@ -341,13 +351,14 @@ playerCardSlot7.addEventListener('click', () => {
 playerCardSlot8.addEventListener('click', () => {
     
     if(cardOn8) {
-    // Pick up first card of equal suit from computers hand
+    // Pick up first card of equal suit from computer's hand
     pickupComputerCard = computerDeck.cards.find(card => card.suit === playerDeck.cards[7].suit)
     pickupComputerCardIndex = computerDeck.cards.findIndex(card => card.suit === playerDeck.cards[7].suit)
   
     // If computer's hand runs out the equal suit, computer's first card is picked up
     if(pickupComputerCard == undefined) {
     pickupComputerCard = computerDeck.cards[0]
+    pickupComputerCardIndex = 0
    }
 
    // Check the winner card and count score
@@ -364,7 +375,7 @@ playerCardSlot8.addEventListener('click', () => {
     //Show computer's card
     showComputerCard(pickupComputerCard)      
 
-    // After 2 seconds turn off player's and computers card on desk
+    // After 2 seconds turn off player's and computer's card on desk
     setTimeout(() => {
     deletePickupComputerCard()
     cleanPlayerCardSlot(playerDeck.cards[7],playerCardSlot8)
@@ -381,13 +392,14 @@ playerCardSlot8.addEventListener('click', () => {
 playerCardSlot9.addEventListener('click', () => {
     
     if(cardOn9) {
-    // Pick up first card of equal suit from computers hand
+    // Pick up first card of equal suit from computer's hand
     pickupComputerCard = computerDeck.cards.find(card => card.suit === playerDeck.cards[8].suit)
     pickupComputerCardIndex = computerDeck.cards.findIndex(card => card.suit === playerDeck.cards[8].suit)
   
     // If computer's hand runs out the equal suit, computer's first card is picked up
     if(pickupComputerCard == undefined) {
     pickupComputerCard = computerDeck.cards[0]
+    pickupComputerCardIndex = 0
    }
 
    // Check the winner card and count score
@@ -404,7 +416,7 @@ playerCardSlot9.addEventListener('click', () => {
     //Show computer's card
     showComputerCard(pickupComputerCard)      
 
-    // After 2 seconds turn off player's and computers card on desk
+    // After 2 seconds turn off player's and computer's card on desk
     setTimeout(() => {
     deletePickupComputerCard()
     cleanPlayerCardSlot(playerDeck.cards[8],playerCardSlot9)
@@ -421,13 +433,14 @@ playerCardSlot9.addEventListener('click', () => {
 playerCardSlot10.addEventListener('click', () => {
     
     if(cardOn10) {
-    // Pick up first card of equal suit from computers hand
+    // Pick up first card of equal suit from computer's hand
     pickupComputerCard = computerDeck.cards.find(card => card.suit === playerDeck.cards[9].suit)
     pickupComputerCardIndex = computerDeck.cards.findIndex(card => card.suit === playerDeck.cards[9].suit)
   
     // If computer's hand runs out the equal suit, computer's first card is picked up
     if(pickupComputerCard == undefined) {
     pickupComputerCard = computerDeck.cards[0]
+    pickupComputerCardIndex = 0
    }
 
    // Check the winner card and count score
@@ -444,7 +457,7 @@ playerCardSlot10.addEventListener('click', () => {
     //Show computer's card
     showComputerCard(pickupComputerCard)      
 
-    // After 2 seconds turn off player's and computers card on desk
+    // After 2 seconds turn off player's and computer's card on desk
     setTimeout(() => {
     deletePickupComputerCard()
     cleanPlayerCardSlot(playerDeck.cards[9],playerCardSlot10)
@@ -461,13 +474,14 @@ playerCardSlot10.addEventListener('click', () => {
 playerCardSlot11.addEventListener('click', () => {
     
     if(cardOn11) {
-    // Pick up first card of equal suit from computers hand
+    // Pick up first card of equal suit from computer's hand
     pickupComputerCard = computerDeck.cards.find(card => card.suit === playerDeck.cards[10].suit)
     pickupComputerCardIndex = computerDeck.cards.findIndex(card => card.suit === playerDeck.cards[10].suit)
   
     // If computer's hand runs out the equal suit, computer's first card is picked up
     if(pickupComputerCard == undefined) {
     pickupComputerCard = computerDeck.cards[0]
+    pickupComputerCardIndex = 0
    }
 
    // Check the winner card and count score
@@ -484,7 +498,7 @@ playerCardSlot11.addEventListener('click', () => {
     //Show computer's card
     showComputerCard(pickupComputerCard)      
 
-    // After 2 seconds turn off player's and computers card on desk
+    // After 2 seconds turn off player's and computer's card on desk
     setTimeout(() => {
     deletePickupComputerCard()
     cleanPlayerCardSlot(playerDeck.cards[10],playerCardSlot11)
@@ -501,13 +515,14 @@ playerCardSlot11.addEventListener('click', () => {
 playerCardSlot12.addEventListener('click', () => {
     
     if(cardOn12) {
-    // Pick up first card of equal suit from computers hand
+    // Pick up first card of equal suit from computer's hand
     pickupComputerCard = computerDeck.cards.find(card => card.suit === playerDeck.cards[11].suit)
     pickupComputerCardIndex = computerDeck.cards.findIndex(card => card.suit === playerDeck.cards[11].suit)
   
     // If computer's hand runs out the equal suit, computer's first card is picked up
     if(pickupComputerCard == undefined) {
     pickupComputerCard = computerDeck.cards[0]
+    pickupComputerCardIndex = 0
    }
 
    // Check the winner card and count score
@@ -524,7 +539,7 @@ playerCardSlot12.addEventListener('click', () => {
     //Show computer's card
     showComputerCard(pickupComputerCard)      
 
-    // After 2 seconds turn off player's and computers card on desk
+    // After 2 seconds turn off player's and computer's card on desk
     setTimeout(() => {
     deletePickupComputerCard()
     cleanPlayerCardSlot(playerDeck.cards[11],playerCardSlot12)
@@ -549,6 +564,7 @@ playerCardSlot13.addEventListener('click', () => {
     // If computer's hand runs out the equal suit, computer's first card is picked up
     if(pickupComputerCard == undefined) {
     pickupComputerCard = computerDeck.cards[0]
+    pickupComputerCardIndex = 0
    }
 
    // Check the winner card and count score
@@ -596,21 +612,7 @@ function showComputerCard(card) {
     }
 
 
-// Check winner and show player's score on desk. Player wins game if computer's score is 52
-function getPlayerScoreHTML() {
-    
-    const scoreDiv = document.createElement('div')
-    scoreDiv.innerText = ''
-    if(computerScore == 52){
-        scoreDiv.innerText = "win!!!"
-    } else {
-        scoreDiv.innerText = playerScore
-    }
-
-    return scoreDiv
-}
-
-
+// If suit is equal, verified witch value is bigger. Otherwise return always true.
 function isRoundWinner(cardOne, cardTwo) {
     if(cardOne.suit === cardTwo.suit){
         return CARD_VALUE_MAP[cardOne.value] > CARD_VALUE_MAP[cardTwo.value]
