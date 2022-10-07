@@ -50,7 +50,7 @@ let cardOn11= true
 let cardOn12 = true
 let cardOn13= true
 
-let cardVisibly = 2000
+let cardVisibly = 1000
 let playerDeck, computerDeck, pickupComputerCard, pickupComputerCardIndex
 let computerScore = 0
 let playerScore = 0
@@ -111,7 +111,7 @@ function listenCard(cardOn, playerCards, playerCardSlot) {
         //Show computer's card
         showComputerCard(pickupComputerCard)      
     
-        // After 2 seconds turn off player's and computer's card on desk
+        // After 1 seconds (cardVisibly parameter) turn off player's and computer's card on desk
         setTimeout(() => {
         deletePickupComputerCard()
         cleanPlayerCardSlot(playerCards,playerCardSlot)
