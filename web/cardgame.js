@@ -89,9 +89,10 @@ playerCardSlot1.addEventListener('click', () => {
     setTimeout(() => {
     deletePickupComputerCard()
     cleanPlayerCardSlot(playerDeck.cards[0],playerCardSlot1)
-    cardOn1 = false
     console.log(computerDeck.cards)
-    }, cardVisibly)  
+    }, cardVisibly)
+
+    cardOn1 = false
     }
 })
 
@@ -131,9 +132,10 @@ playerCardSlot2.addEventListener('click', () => {
     setTimeout(() => {
     deletePickupComputerCard()
     cleanPlayerCardSlot(playerDeck.cards[1],playerCardSlot2)
-    cardOn2 = false
     console.log(computerDeck.cards)
-    }, cardVisibly)  
+    }, cardVisibly)
+
+    cardOn2 = false
     }
 })
 
@@ -173,9 +175,10 @@ playerCardSlot3.addEventListener('click', () => {
     setTimeout(() => {
     deletePickupComputerCard()
     cleanPlayerCardSlot(playerDeck.cards[2],playerCardSlot3)
-    cardOn3 = false
     console.log(computerDeck.cards)
     }, cardVisibly)  
+
+    cardOn3 = false
     }
 })
 
@@ -215,8 +218,9 @@ playerCardSlot4.addEventListener('click', () => {
     setTimeout(() => {
     deletePickupComputerCard()
     cleanPlayerCardSlot(playerDeck.cards[3],playerCardSlot4)
+    }, cardVisibly) 
+    
     cardOn4 = false
-    }, cardVisibly)  
     }
 })
 
@@ -256,8 +260,9 @@ playerCardSlot5.addEventListener('click', () => {
     setTimeout(() => {
     deletePickupComputerCard()
     cleanPlayerCardSlot(playerDeck.cards[4],playerCardSlot5)
+    }, cardVisibly) 
+    
     cardOn5 = false
-    }, cardVisibly)  
     }
 })
 
@@ -297,8 +302,9 @@ playerCardSlot6.addEventListener('click', () => {
     setTimeout(() => {
     deletePickupComputerCard()
     cleanPlayerCardSlot(playerDeck.cards[5],playerCardSlot6)
-    cardOn6 = false
     }, cardVisibly)  
+
+    cardOn6 = false
     }
 })
 
@@ -338,8 +344,9 @@ playerCardSlot7.addEventListener('click', () => {
     setTimeout(() => {
     deletePickupComputerCard()
     cleanPlayerCardSlot(playerDeck.cards[6],playerCardSlot7)
+    }, cardVisibly) 
+    
     cardOn7 = false
-    }, cardVisibly)  
     }
 })
 
@@ -379,8 +386,9 @@ playerCardSlot8.addEventListener('click', () => {
     setTimeout(() => {
     deletePickupComputerCard()
     cleanPlayerCardSlot(playerDeck.cards[7],playerCardSlot8)
+    }, cardVisibly) 
+    
     cardOn8 = false
-    }, cardVisibly)  
     }
 })
 
@@ -420,8 +428,9 @@ playerCardSlot9.addEventListener('click', () => {
     setTimeout(() => {
     deletePickupComputerCard()
     cleanPlayerCardSlot(playerDeck.cards[8],playerCardSlot9)
-    cardOn9 = false
     }, cardVisibly)  
+
+    cardOn9 = false
     }
 })
 
@@ -461,8 +470,9 @@ playerCardSlot10.addEventListener('click', () => {
     setTimeout(() => {
     deletePickupComputerCard()
     cleanPlayerCardSlot(playerDeck.cards[9],playerCardSlot10)
-    cardOn10 = false
     }, cardVisibly)  
+
+    cardOn10 = false
     }
 })
 
@@ -502,8 +512,9 @@ playerCardSlot11.addEventListener('click', () => {
     setTimeout(() => {
     deletePickupComputerCard()
     cleanPlayerCardSlot(playerDeck.cards[10],playerCardSlot11)
-    cardOn11 = false
     }, cardVisibly)  
+
+    cardOn11 = false
     }
 })
 
@@ -543,8 +554,9 @@ playerCardSlot12.addEventListener('click', () => {
     setTimeout(() => {
     deletePickupComputerCard()
     cleanPlayerCardSlot(playerDeck.cards[11],playerCardSlot12)
+    }, cardVisibly) 
+    
     cardOn12 = false
-    }, cardVisibly)  
     }
 })
 
@@ -585,8 +597,9 @@ playerCardSlot13.addEventListener('click', () => {
     setTimeout(() => {
     deletePickupComputerCard()
     cleanPlayerCardSlot(playerDeck.cards[12],playerCardSlot13)
-    cardOn13 = false
     }, cardVisibly)  
+
+    cardOn13 = false
     }
 })
 
