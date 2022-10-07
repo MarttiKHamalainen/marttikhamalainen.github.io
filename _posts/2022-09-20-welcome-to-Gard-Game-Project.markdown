@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Gard Game Project"
+title:  "Card Game Project"
 date:   2022-09-20 12:05:21 +0300
 categories: jekyll update
 ---
