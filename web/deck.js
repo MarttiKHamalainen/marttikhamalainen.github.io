@@ -1,5 +1,9 @@
+// This deck.js file is copied from youtube https://www.youtube.com/watch?v=NxRwIZWjLtE
+// Added own functions getEmptyComputerCardHTML() and getEmptyCardHTML()
+
 const SUITS = ["♠", "♣", "♥", "♦"];
 const VALUES = ["A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"];
+
 
 export default class Deck {
     constructor(cards = freshDeck()){
@@ -11,13 +15,6 @@ get numberOfCards() {
     return this.cards.length
     }
 
-pop() {
-    return this.cards.shift()
-}
-
-push(card) {
-    this.cards.push(card)
-}
 
 shuffle() {
     for (let i = this.numberOfCards - 1; i > 0; i--) {
@@ -28,6 +25,7 @@ shuffle() {
     }
 }
 }
+
 
 class Card {
     constructor(suit, value) {
