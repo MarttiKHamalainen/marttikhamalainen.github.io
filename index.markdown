@@ -6,6 +6,7 @@ layout: home
 
 ---
 
-JavaScript Card Game (Game's funtionality made myself and some functions are still missing. Deck copied from Youtube). 
-How to play game? Select your card by clicking on it and computer choose it's own card. Card with higher value win.   
+JavaScript Card Game. Game's funtionality made myself and some functions are still missing. Card Games deck is copied from Youtube.  
+  
+How to play the game? Select your card by clicking on it and computer choose it's own card. Card with higher value win. Start the game from the link below.  
 **[Start Game](/web/index.html)**
