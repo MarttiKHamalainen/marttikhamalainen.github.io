@@ -1,6 +1,10 @@
-// cardgame.js contains Card Game's functional code. Deck is imported from deck.js file
+// This file (cardgame.js) contains Card Game's functional code. 
+// Code made by Martti Hämäläinen 10.10.2022
+
+// Card game's deck is imported from deck.js file
 import Deck from './deck.js'
 
+// Value array for comparing card values
 const CARD_VALUE_MAP = {
     "2":2,
     "3":3,
@@ -17,6 +21,7 @@ const CARD_VALUE_MAP = {
     "A":14,
 }
 
+// declare values from index.html file's class attributes
 const computerCardSlot = document.querySelector(".computer-card-slot")
 const computerCountSlot = document.querySelector(".computer-score")
 const playerCountSlot = document.querySelector(".player-score")
@@ -50,13 +55,15 @@ let cardOn11= true
 let cardOn12 = true
 let cardOn13= true
 
-let cardVisibly = 1000
-let playerDeck, computerDeck, pickupComputerCard, pickupComputerCardIndex
-let computerScore = 0
-let playerScore = 0
+let cardVisibly = 1000 // Change time whow long played cards are visibly on desk
+let playerDeck, computerDeck // Player and computer decks
+let pickupComputerCard, pickupComputerCardIndex // Picked up card from computer deck and it's index
+let computerScore = 0 // Computer score
+let playerScore = 0 // Player score
 
-// Add listeners to the cards
-
+// Add listeners to the cards. 
+// Funtion listenCard receive three parameters: boolean cardOne-parameter, player's deck object and computer's deck object
+// Function listenCard return false
 playerCardSlot1.addEventListener('click', () => {cardOn1 = listenCard(cardOn1, playerDeck.cards[0], playerCardSlot1)})
 
 playerCardSlot2.addEventListener('click', () => {cardOn2 = listenCard(cardOn2, playerDeck.cards[1], playerCardSlot2)})
@@ -85,19 +92,32 @@ playerCardSlot13.addEventListener('click', () => {cardOn13 = listenCard(cardOn13
 
 
 // This function is executed, when the player clicks on the card
+// Funtion receive three parameters: boolean cardOne-parameter, player's deck object and computer's deck object
+// Function return false
 function listenCard(cardOn, playerCard, playerCardSlot) {
-    if(cardOn) {
-        // Pick up first card of equal suit from computers desk
-        pickupComputerCard = computerDeck.cards.find(card => card.suit === playerCard.suit)
-        pickupComputerCardIndex = computerDeck.cards.findIndex(card => card.suit === playerCard.suit)
-      
-        // If computer's desk runs out the equal suit, computer's first card is picked up
+    if(cardOn) { 
+
+        //Find card equal suit and higher value and assign it to pickupComputerCard
+        pickupComputerCard = computerDeck.cards.find(card => card.suit === playerCard.suit && card.value > playerCard.value)
+           
+        // If there is no card with higher value in computer's deck, some card with equal suit is picked up
+        // and assign it to pickupComputerCard
         if(pickupComputerCard == undefined) {
-        pickupComputerCard = computerDeck.cards[0]
-        pickupComputerCardIndex = 0
+            pickupComputerCard = computerDeck.cards.find(card => card.suit === playerCard.suit)
+       } 
+
+       // If there is no card with equal suit in computer's deck, lowest card is picked up
+       // and assign it to pickupComputerCard
+       if(pickupComputerCard == undefined){
+        pickupComputerCard = computerDeck.cards.reduce((previous, current) => {
+            return isLowerOrEqualValue(previous, current) ? previous : current
+          })
        }
+
+       // Find computer's card index and assign it to pickupComputerCardIndex 
+       pickupComputerCardIndex = computerDeck.cards.findIndex(card => card === pickupComputerCard)
     
-       // Check the winner card and count score
+       // Check the winner card and count the score
         if (isRoundWinner(playerCard, pickupComputerCard)){
             playerScore++       
         } else {
@@ -108,19 +128,19 @@ function listenCard(cardOn, playerCard, playerCardSlot) {
         computerCountSlot.innerText = `Computer ${computerScore}`
         playerCountSlot.innerText = `Player ${playerScore}`
     
-        //Show computer's card
-        showComputerCard(pickupComputerCard)      
+      
+        showComputerCard(pickupComputerCard) //Show computer's card on desk
     
         // After 1 seconds (cardVisibly parameter) turn off player's and computer's card on desk
         setTimeout(() => {
-        deletePickupComputerCard()
-        cleanPlayerCardSlot(playerCard,playerCardSlot)
+        deletePickupComputerCard() // Turn off computer's card adn remove it from deck
+        cleanPlayerCardSlot(playerCard, playerCardSlot) // Turn off player's card
         }, cardVisibly)
         }
         return false
 }
 
-// Clean computer's card slot on desk and delete computer's card 
+// Clean computer's card slot on desk and delete computer's card from deck
 function deletePickupComputerCard() {
     computerCardSlot.innerHTML = ''
     computerCardSlot.appendChild(pickupComputerCard.getEmptyComputerCardHTML())
@@ -128,6 +148,7 @@ function deletePickupComputerCard() {
     }
 
 // Clean player's card slot on desk
+// receive two parameters: player card object and class attribute 
  function cleanPlayerCardSlot(card, slot) {
     slot.innerText = ''
     slot.appendChild(card.getEmptyCardHTML())
@@ -135,20 +156,29 @@ function deletePickupComputerCard() {
     
   
 // Show card in computer card slot
+// receive card object parameter
 function showComputerCard(card) {
     computerCardSlot.innerHTML = ''
     computerCardSlot.appendChild(card.getHTML())
     }
 
 
-// If suit is equal, verified witch value is bigger. Otherwise return always true.
+// If cards suit are equal verified values and return true if card one value is higher. 
+// If card two value is higher return false. If suits are not equal return always true.
+// Receive two card object parameters and return boolean value
 function isRoundWinner(cardOne, cardTwo) {
     if(cardOne.suit === cardTwo.suit){
         return CARD_VALUE_MAP[cardOne.value] > CARD_VALUE_MAP[cardTwo.value]
     } else {
         return true
-    }
-    
+    }  
+}
+
+// Verified card values and return true if card one value is higher or equal. 
+// If card two value is higher return false
+// Receive two card object parameters and return boolean value
+function isLowerOrEqualValue(cardOne, cardTwo) {    
+        return CARD_VALUE_MAP[cardOne.value] <= CARD_VALUE_MAP[cardTwo.value]   
 }
 
 // Start game
@@ -156,12 +186,13 @@ startGame()
 
 // Declare decks, shuffle deck and deal the cards
 function startGame() {
-    const deck = new Deck();
-    deck.shuffle();
+    const deck = new Deck() // Declare deck and assign it to deck parameter
+    deck.shuffle() // Shuffle deck
 
-    playerDeck = new Deck(deck.cards.slice(0,13))
-    computerDeck = new Deck(deck.cards.slice(13,26)) 
+    playerDeck = new Deck(deck.cards.slice(0,13)) // Declare player's deck, 13 cards
+    computerDeck = new Deck(deck.cards.slice(13,26)) // Declare computer's deck, 13 cards
    
+    // Show 13 player's cards and one computer empty card on desk
     computerCardSlot.appendChild(computerDeck.cards[0].getEmptyComputerCardHTML())
     playerCardSlot1.appendChild(playerDeck.cards[0].getHTML())
     playerCardSlot2.appendChild(playerDeck.cards[1].getHTML())
