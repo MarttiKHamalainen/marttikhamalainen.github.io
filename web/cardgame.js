@@ -34,8 +34,8 @@ const playerCardSlot11 = document.querySelector(".card-slot11")
 const playerCardSlot12 = document.querySelector(".card-slot12")
 const playerCardSlot13 = document.querySelector(".card-slot13")
 
-// cardOn variables are used to allow click card only one time. 
-// Only first click count scores, if player click cark many times the same card
+// cardOn variables are used to allow program counts scores only on first click. 
+//Count scores when cardOn value is true
 let cardOn1 = true
 let cardOn2 = true
 let cardOn3 = true
@@ -85,11 +85,11 @@ playerCardSlot13.addEventListener('click', () => {cardOn13 = listenCard(cardOn13
 
 
 // This function is executed, when the player clicks on the card
-function listenCard(cardOn, playerCards, playerCardSlot) {
+function listenCard(cardOn, playerCard, playerCardSlot) {
     if(cardOn) {
         // Pick up first card of equal suit from computers desk
-        pickupComputerCard = computerDeck.cards.find(card => card.suit === playerCards.suit)
-        pickupComputerCardIndex = computerDeck.cards.findIndex(card => card.suit === playerCards.suit)
+        pickupComputerCard = computerDeck.cards.find(card => card.suit === playerCard.suit)
+        pickupComputerCardIndex = computerDeck.cards.findIndex(card => card.suit === playerCard.suit)
       
         // If computer's desk runs out the equal suit, computer's first card is picked up
         if(pickupComputerCard == undefined) {
@@ -98,7 +98,7 @@ function listenCard(cardOn, playerCards, playerCardSlot) {
        }
     
        // Check the winner card and count score
-        if (isRoundWinner(playerCards, pickupComputerCard)){
+        if (isRoundWinner(playerCard, pickupComputerCard)){
             playerScore++       
         } else {
             computerScore++
@@ -114,8 +114,7 @@ function listenCard(cardOn, playerCards, playerCardSlot) {
         // After 1 seconds (cardVisibly parameter) turn off player's and computer's card on desk
         setTimeout(() => {
         deletePickupComputerCard()
-        cleanPlayerCardSlot(playerCards,playerCardSlot)
-        console.log(computerDeck.cards)
+        cleanPlayerCardSlot(playerCard,playerCardSlot)
         }, cardVisibly)
         }
         return false
