@@ -6,6 +6,6 @@ layout: home
 
 ---
 
-JavaScript Gard Game (Game's funtionality made myself and some functions are still missing. Deck copied from Youtube). 
-Select a card by clicking on it.
-[Start Game](/web/index.html)
+JavaScript Card Game (Game's funtionality made myself and some functions are still missing. Deck copied from Youtube). 
+How to play game? Select your card by clicking on it and computer choose it's own card. Card with higher value win.   
+**[Start Game](/web/index.html)**
