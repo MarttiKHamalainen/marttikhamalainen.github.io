@@ -5,8 +5,8 @@
 body {
     margin: 0;
     display: grid;
-    grid-template-columns: repeat(13, 6vw);
-    grid-template-rows: 10vw 10vw;
+    grid-template-columns: repeat(7, 6vw);
+    grid-template-rows: 10vw 3vw 3vw 10vw 10vw;
     gap: 0.5vw;
     cursor: pointer;
     justify-content: center;
@@ -29,7 +29,7 @@ body {
 }
 
 .computer-score {
-    grid-column: span 6;
+    grid-column: span 7;
     display: flex;
     justify-content: left;
     align-items: center;
@@ -39,7 +39,7 @@ body {
 }
 
 .player-score {
-    grid-column: span 6;
+    grid-column: span 7;
     display: flex;
     justify-content: left;
     align-items: center;

@@ -125,8 +125,8 @@ function listenCard(cardOn, playerCard, playerCardSlot) {
         }
     
         // Update score slots 
-        computerCountSlot.innerText = `Computer ${computerScore}`
-        playerCountSlot.innerText = `Player ${playerScore}`
+        computerCountSlot.innerText = `Computer: ${computerScore}`
+        playerCountSlot.innerText = `Player: ${playerScore}`
     
       
         showComputerCard(pickupComputerCard) //Show computer's card on desk
