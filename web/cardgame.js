@@ -93,7 +93,7 @@ playerCardSlot13.addEventListener('click', () => {cardOn13 = listenCard(cardOn13
 
 // This function is executed, when the player clicks on the card
 // Funtion receive three parameters: boolean cardOne-parameter, player's deck object and computer's deck object
-// Function return false
+// Function return false. Function executed only on the first click when the carOn argument is true.
 function listenCard(cardOn, playerCard, playerCardSlot) {
     if(cardOn) { 
 
@@ -181,8 +181,8 @@ function isLowerOrEqualValue(cardOne, cardTwo) {
         return CARD_VALUE_MAP[cardOne.value] <= CARD_VALUE_MAP[cardTwo.value]   
 }
 
-// Start game
-startGame()
+
+startGame() // Start game
 
 // Declare decks, shuffle deck and deal the cards
 function startGame() {

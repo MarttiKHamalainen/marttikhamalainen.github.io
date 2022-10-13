@@ -5,12 +5,13 @@
 body {
     margin: 0;
     display: grid;
-    grid-template-columns: repeat(13, 4rem);
-    grid-template-rows: 7rem 7rem;
-    gap: .5rem;
+    grid-template-columns: repeat(13, 6vw);
+    grid-template-rows: 10vw 10vw;
+    gap: 0.5vw;
     cursor: pointer;
     justify-content: center;
-    padding-top: 1rem;
+    padding-top: 1vw;
+    font-size: 100%;
 }
 
 .deck {
@@ -20,10 +21,11 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 3rem;
+    font-size: 3vw;
     border-radius:  .5rem;
     color: white;
     user-select: none;
+    
 }
 
 .computer-score {
@@ -31,8 +33,9 @@ body {
     display: flex;
     justify-content: left;
     align-items: center;
-    font-size: 2rem;
+    font-size: 3vw;
     color: green;
+    
 }
 
 .player-score {
@@ -40,7 +43,7 @@ body {
     display: flex;
     justify-content: left;
     align-items: center;
-    font-size: 2rem;
+    font-size: 3vw;
 }
 
 .empty {
@@ -50,11 +53,9 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 3rem;
-    border-radius:  .5rem;
+    border-radius:  0.7vw;
     color: white;
-    user-select: none;
-    
+    user-select: none;    
 }
 
 .green {
@@ -70,11 +71,11 @@ body {
     height: 100%;
     width: 100%;
     border: 1px solid black;
-    border-radius: .5rem;
+    border-radius: .7vw;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 4rem;
+    font-size: 5vw;
 }
 
 .card.red {
@@ -88,18 +89,16 @@ body {
 .card::before, .card::after {
     position: absolute;
     content: attr(data-value);
-    font-size: 1rem;
-
+    font-size: 1.5vw;
 }
 
 .card::before {
-    top: .5rem;
-    left: .5rem;
+    top: 0.5vw;
+    left: 0.5vw;
 }
 
 .card::after {
-    bottom: .5rem;
-    right: .5rem;
+    bottom: 0.5vw;
+    right: .5vw;
     transform: rotate(180deg);
-
 }
