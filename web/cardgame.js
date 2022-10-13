@@ -124,17 +124,14 @@ function listenCard(cardOn, playerCard, playerCardSlot) {
             computerScore++
         }
     
-        // Update score slots 
-        computerCountSlot.innerText = `Computer: ${computerScore}`
-        playerCountSlot.innerText = `Player: ${playerScore}`
-    
-      
         showComputerCard(pickupComputerCard) //Show computer's card on desk
     
         // After 1 seconds (cardVisibly parameter) turn off player's and computer's card on desk
         setTimeout(() => {
         deletePickupComputerCard() // Turn off computer's card adn remove it from deck
         cleanPlayerCardSlot(playerCard, playerCardSlot) // Turn off player's card
+        computerCountSlot.innerText = `Computer: ${computerScore}` // Update computer score
+        playerCountSlot.innerText = `Player: ${playerScore}` // Update player score
         }, cardVisibly)
         }
         return false

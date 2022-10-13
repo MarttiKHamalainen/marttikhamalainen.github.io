@@ -6,7 +6,7 @@ body {
     margin: 0;
     display: grid;
     grid-template-columns: repeat(7, 6vw);
-    grid-template-rows: 10vw 3vw 3vw 10vw 10vw;
+    grid-template-rows: 10vw 4vw 3vw 10vw 10vw;
     gap: 0.5vw;
     cursor: pointer;
     justify-content: center;
