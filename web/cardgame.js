@@ -1,5 +1,6 @@
 // This file (cardgame.js) contains Card Game's functional code. 
-// Code made by Martti Hämäläinen 10.10.2022
+// Code made by Martti Hämäläinen, last edit 14.11.2022
+// The deck is copied and modified from "https://www.youtube.com/watch?v=NxRwIZWjLtE&t=935s"
 
 // Card game's deck is imported from deck.js file
 import Deck from './deck.js'
@@ -53,8 +54,8 @@ const playerCardSlot11 = document.querySelector(".card-slot11")
 const playerCardSlot12 = document.querySelector(".card-slot12")
 const playerCardSlot13 = document.querySelector(".card-slot13")
 
-// cardOn variables are used to allow program counts scores only on first click. 
-//Count scores when cardOn value is true
+
+// Declare cardOn variables and set their values to true
 let cardOn1 = true
 let cardOn2 = true
 let cardOn3 = true
@@ -105,7 +106,7 @@ playerCardSlot12.addEventListener('click', () => {cardOn12 = listenCard(cardOn12
 playerCardSlot13.addEventListener('click', () => {cardOn13 = listenCard(cardOn13, playerDeck.cards[12], playerCardSlot13)})
 
 
-// This function is executed, when the player clicks on the card
+// The function is executed, when the player clicks on the card
 // Funtion receive three parameters: boolean cardOne-parameter, player's deck object and computer's deck object
 // Function return false. Function executed only on the first click when the carOn argument is true.
 function listenCard(cardOn, playerCard, playerCardSlot) {
@@ -130,7 +131,7 @@ function listenCard(cardOn, playerCard, playerCardSlot) {
 
        // Find computer's card index and assign it to pickupComputerCardIndex 
        pickupComputerCardIndex = computerDeck.cards.findIndex(card => card === pickupComputerCard)
-       console.log(pickupComputerCardIndex)
+       
        // Check the winner card and count the score
         if (isRoundWinner(playerCard, pickupComputerCard)){
             playerScore++       
@@ -140,9 +141,9 @@ function listenCard(cardOn, playerCard, playerCardSlot) {
 
         let computerSlotTMP = findCardSlot(pickupComputerCardIndex)
     
-        showComputerCard(pickupComputerCard, computerSlotTMP)
-        showComputerCardOnCount(pickupComputerCard) // Show computer's card on counting
-        showPlayerCardOnCount(playerCard) // Show player's card on counting
+        showComputerCard(pickupComputerCard, computerSlotTMP) // Show computer's card in the card row
+        showComputerCardOnCount(pickupComputerCard) // Show computer's card in the counting row
+        showPlayerCardOnCount(playerCard) // Show player's card in the counting row
     
         // After 1 seconds (cardVisibly parameter) turn off player's and computer's card on desk
         setTimeout(() => {
