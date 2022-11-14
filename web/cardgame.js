@@ -22,9 +22,23 @@ const CARD_VALUE_MAP = {
 }
 
 // declare values from index.html file's class attributes
-const computerCardSlot = document.querySelector(".computer-card-slot")
+const computerCardSlotOnCount = document.querySelector(".computer-slot")
+const computerCardSlot1 = document.querySelector(".computer-slot1")
+const computerCardSlot2 = document.querySelector(".computer-slot2")
+const computerCardSlot3 = document.querySelector(".computer-slot3")
+const computerCardSlot4 = document.querySelector(".computer-slot4")
+const computerCardSlot5 = document.querySelector(".computer-slot5")
+const computerCardSlot6 = document.querySelector(".computer-slot6")
+const computerCardSlot7 = document.querySelector(".computer-slot7")
+const computerCardSlot8 = document.querySelector(".computer-slot8")
+const computerCardSlot9 = document.querySelector(".computer-slot9")
+const computerCardSlot10 = document.querySelector(".computer-slot10")
+const computerCardSlot11 = document.querySelector(".computer-slot11")
+const computerCardSlot12 = document.querySelector(".computer-slot12")
+const computerCardSlot13 = document.querySelector(".computer-slot13")
 const computerCountSlot = document.querySelector(".computer-score")
 const playerCountSlot = document.querySelector(".player-score")
+const playerCardSlotOnCount = document.querySelector(".player-slot")
 const playerCardSlot1 = document.querySelector(".card-slot1")
 const playerCardSlot2 = document.querySelector(".card-slot2")
 const playerCardSlot3 = document.querySelector(".card-slot3")
@@ -116,48 +130,125 @@ function listenCard(cardOn, playerCard, playerCardSlot) {
 
        // Find computer's card index and assign it to pickupComputerCardIndex 
        pickupComputerCardIndex = computerDeck.cards.findIndex(card => card === pickupComputerCard)
-    
+       console.log(pickupComputerCardIndex)
        // Check the winner card and count the score
         if (isRoundWinner(playerCard, pickupComputerCard)){
             playerScore++       
         } else {
             computerScore++
         }
+
+        let computerSlotTMP = findCardSlot(pickupComputerCardIndex)
     
-        showComputerCard(pickupComputerCard) //Show computer's card on desk
+        showComputerCard(pickupComputerCard, computerSlotTMP)
+        showComputerCardOnCount(pickupComputerCard) // Show computer's card on counting
+        showPlayerCardOnCount(playerCard) // Show player's card on counting
     
         // After 1 seconds (cardVisibly parameter) turn off player's and computer's card on desk
         setTimeout(() => {
-        deletePickupComputerCard() // Turn off computer's card adn remove it from deck
+        deletePickupComputerCard(computerSlotTMP) // Turn off computer's card and remove it from deck
         cleanPlayerCardSlot(playerCard, playerCardSlot) // Turn off player's card
         computerCountSlot.innerText = `Computer: ${computerScore}` // Update computer score
         playerCountSlot.innerText = `Player: ${playerScore}` // Update player score
+        refreshComputerCards()
         }, cardVisibly)
         }
         return false
 }
 
 // Clean computer's card slot on desk and delete computer's card from deck
-function deletePickupComputerCard() {
-    computerCardSlot.innerHTML = ''
-    computerCardSlot.appendChild(pickupComputerCard.getEmptyComputerCardHTML())
+function deletePickupComputerCard(slot) {
+    computerCardSlotOnCount.innerHTML = ''
+    //console.log(slot)
+    slot.innerHTML = ''
     computerDeck.cards.splice(pickupComputerCardIndex, 1)
+    
     }
+
+// Refresh computercards when the card is played
+function refreshComputerCards() {
+
+    for (let i = 0; i < computerDeck.cards.length; i++) {
+        let computerSlotTMP = findCardSlot(i)
+        computerSlotTMP.innerHTML = ''
+        computerSlotTMP.appendChild(computerDeck.cards[i].getEmptyComputerCardHTML())
+    }
+
+    for (let i = computerDeck.cards.length; i < 13; i++) {
+        let computerSlotTMP = findCardSlot(i)
+        computerSlotTMP.innerHTML = ''
+        computerSlotTMP.appendChild(drawEmptyCardHTML())
+    }
+
+}
+
+// Draw empty card to the cardslot
+function drawEmptyCardHTML() {
+    const cardDiv = document.createElement('div')
+    cardDiv.innerText = ""
+    cardDiv.classList.add("empty")
+    return cardDiv
+}
 
 // Clean player's card slot on desk
 // receive two parameters: player card object and class attribute 
  function cleanPlayerCardSlot(card, slot) {
     slot.innerText = ''
     slot.appendChild(card.getEmptyCardHTML())
- }   
+    playerCardSlotOnCount.innerHTML = ''
+    }
+
+ function showComputerCard(card, slot) {
+    slot.innerHTML = ''
+    slot.appendChild(card.getHTML())
+    }
+
+
     
   
 // Show card in computer card slot
 // receive card object parameter
-function showComputerCard(card) {
-    computerCardSlot.innerHTML = ''
-    computerCardSlot.appendChild(card.getHTML())
+function showComputerCardOnCount(card) {
+    computerCardSlotOnCount.innerHTML = ''
+    computerCardSlotOnCount.appendChild(card.getHTML())
     }
+
+function showPlayerCardOnCount(card) {
+    playerCardSlotOnCount.innerHTML = ''
+    playerCardSlotOnCount.appendChild(card.getHTML())
+    }
+
+function findCardSlot(cardIndex) {
+    switch (cardIndex) {
+        case 0:
+            return computerCardSlot1;
+        case 1:
+            return computerCardSlot2;
+        case 2:
+            return computerCardSlot3;
+        case 3:
+            return computerCardSlot4;
+        case 4:
+            return computerCardSlot5;
+        case 5:
+            return computerCardSlot6;
+        case 6:
+            return computerCardSlot7;
+        case 7:
+            return computerCardSlot8;
+        case 8:
+            return computerCardSlot9;
+        case 9:
+            return computerCardSlot10;
+        case 10:
+            return computerCardSlot11;
+        case 11:
+            return computerCardSlot12;
+        case 12:
+            return computerCardSlot13;
+      }
+}
+
 
 
 // If cards suit are equal verified values and return true if card one value is higher. 
@@ -189,8 +280,22 @@ function startGame() {
     playerDeck = new Deck(deck.cards.slice(0,13)) // Declare player's deck, 13 cards
     computerDeck = new Deck(deck.cards.slice(13,26)) // Declare computer's deck, 13 cards
    
-    // Show 13 player's cards and one computer empty card on desk
-    computerCardSlot.appendChild(computerDeck.cards[0].getEmptyComputerCardHTML())
+    // Show player's and computer's cards and empty slots.
+    computerCardSlot1.appendChild(computerDeck.cards[0].getEmptyComputerCardHTML())
+    computerCardSlot2.appendChild(computerDeck.cards[1].getEmptyComputerCardHTML())
+    computerCardSlot3.appendChild(computerDeck.cards[2].getEmptyComputerCardHTML())
+    computerCardSlot4.appendChild(computerDeck.cards[3].getEmptyComputerCardHTML())
+    computerCardSlot5.appendChild(computerDeck.cards[4].getEmptyComputerCardHTML())
+    computerCardSlot6.appendChild(computerDeck.cards[5].getEmptyComputerCardHTML())
+    computerCardSlot7.appendChild(computerDeck.cards[6].getEmptyComputerCardHTML())
+    computerCardSlot8.appendChild(computerDeck.cards[7].getEmptyComputerCardHTML())
+    computerCardSlot9.appendChild(computerDeck.cards[8].getEmptyComputerCardHTML())
+    computerCardSlot10.appendChild(computerDeck.cards[9].getEmptyComputerCardHTML())
+    computerCardSlot11.appendChild(computerDeck.cards[10].getEmptyComputerCardHTML())
+    computerCardSlot12.appendChild(computerDeck.cards[11].getEmptyComputerCardHTML())
+    computerCardSlot13.appendChild(computerDeck.cards[12].getEmptyComputerCardHTML())
+//   computerCardSlot.appendChild(computerDeck.cards[0].getEmptyComputerCardHTML())
+//  playerCardSlot.appendChild(playerDeck.cards[0].getEmptyComputerCardHTML())
     playerCardSlot1.appendChild(playerDeck.cards[0].getHTML())
     playerCardSlot2.appendChild(playerDeck.cards[1].getHTML())
     playerCardSlot3.appendChild(playerDeck.cards[2].getHTML())

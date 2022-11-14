@@ -5,8 +5,8 @@
 body {
     margin: 0;
     display: grid;
-    grid-template-columns: repeat(7, 6vw);
-    grid-template-rows: 10vw 4vw 3vw 10vw 10vw;
+    grid-template-columns: repeat(13, 6vw);
+    grid-template-rows: 10vw 10vw 10vw 10vw;
     gap: 0.5vw;
     cursor: pointer;
     justify-content: center;
@@ -29,21 +29,21 @@ body {
 }
 
 .computer-score {
-    grid-column: span 7;
+    grid-column: span 12;
     display: flex;
     justify-content: left;
     align-items: center;
-    font-size: 3vw;
+    font-size: 4vw;
     color: green;
     
 }
 
 .player-score {
-    grid-column: span 7;
+    grid-column: span 12;
     display: flex;
     justify-content: left;
     align-items: center;
-    font-size: 3vw;
+    font-size: 4vw;
 }
 
 .empty {
@@ -85,6 +85,7 @@ body {
 .card.black {
     color: black;
 }
+
 
 .card::before, .card::after {
     position: absolute;
