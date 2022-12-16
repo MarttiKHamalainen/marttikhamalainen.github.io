@@ -6,7 +6,7 @@ layout: home
 
 ---
 
-Hello, I'm studying programming and I publish work related to my studies on this site. 
+Hi, I'm studying programming and I publish works related to my studies on this site. 
 
 I made a little card game. A functionality of the game is made by myself. A card deck has copied and modified from Youtube "https://www.youtube.com/watch?v=NxRwIZWjLtE&t=935s" [available 14.12.2022].
   
