@@ -1,6 +1,6 @@
-// This file (cardgame.js) contains Card Game's functional code. 
-// Code made by Martti Hämäläinen, last edit 14.11.2022
-// The deck is copied and modified from "https://www.youtube.com/watch?v=NxRwIZWjLtE&t=935s"
+// This file contains Card Game's functional code. 
+// The code was made by Martti Hämäläinen, last edit 14.11.2022
+// The deck has been copied and modified from "https://www.youtube.com/watch?v=NxRwIZWjLtE&t=935s"
 
 // Card game's deck is imported from deck.js file
 import Deck from './deck.js'
